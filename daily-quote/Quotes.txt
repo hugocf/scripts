@@ -1,0 +1,46 @@
+“If anything can go wrong, it will” — Finagle's Law (of Dynamic Negatives)
+“If there are two or more ways to do something, and one of those ways can result in a catastrophe, then someone will do it” — Murphy's Law
+“Nothing is as easy as it looks” — Murphy's Corollary
+“Everything takes longer than you think” — Murphy's Corollary
+“If there is a possibility of several things going wrong, the one that will cause the most damage will be the one to go wrong” — Murphy's Corollary
+“If there is a worse time for something to go wrong, it will happen then” — Murphy's Corollary
+“If you perceive that there are four possible ways in which a procedure can go wrong, and circumvent these, then a fifth way, unprepared for, will promptly develop” — Murphy's Corollary
+“Left to themselves, things tend to go from bad to worse” — Murphy's Corollary
+“If everything seems to be going well, you have obviously overlooked something” — Murphy's Corollary
+“Nature always sides with the hidden flaw” — Murphy's Corollary
+“It is impossible to make anything foolproof because fools are so ingenious” — Murphy's Corollary
+“Every solution breeds new problems” — Murphy's Corollary
+“Wow! They've got the internet on computers now!” — Homer Simpson 
+“D'oh!!!” — Homer Simpson 
+“I didn't do it, nobody saw me do it, there's no way you can prove anything!” — Bart Simpson 
+“Don't have a cow, man.” — Bart Simpson 
+“My formula for success is rise early, work late, and strike oil.” — J. Paul Getty 
+“If you can count your money, you don't have a billion dollars.” — J. Paul Getty 
+“Only two things are infinite, the universe and human stupidity, and I'm not sure about the former.” — Albert Einstein 
+“Make everything as simple as possible, but not simpler.” — Albert Einstein 
+“In theory, there is no difference between theory and practice. But, in practice, there is.” — Jan L.A. van de Snepscheut 
+“I find that the harder I work, the more luck I seem to have.” — Thomas Jefferson 
+“Do, or do not. There is no 'try'.” — Yoda 
+“The only difference between me and a madman is that I'm not mad.” — Salvador Dali 
+“Never interrupt your enemy when he is making a mistake.” — Napoleon Bonaparte 
+“If you are going through hell, keep going.” — Sir Winston Churchill 
+“Some cause happiness wherever they go; others, whenever they go.” — Oscar Wilde 
+“Facts are the enemy of truth.” — Don Quixote 
+“I have not failed. I've just found 10,000 ways that won't work.” — Thomas Edison 
+“When you exclude the impossible, whatever remains, however improbable, must be the truth.” — Sherlock Holmes 
+“Eliminate all other factors, and the one which remains must be the truth.” — Sherlock Holmes 
+“You see, but you do not observe.” — Sherlock Holmes 
+“Black holes are where God divided by zero.” — Steven Wright 
+“Knowledge speaks, but wisdom listens.” — Jimi Hendrix 
+“A witty saying proves nothing.” — Voltaire 
+“I'll sleep when I'm dead.” — Warren Zevon 
+“Live fast, die young, leave a good-looking corpse.” — Nick Romano, "Knock on Any Door" 
+“Always look on the bright side of life, ta dum, ta dum.” — Monthy Python, "The Life of Brian" 
+“Do you feel lucky, punk?” — Dirty Harry 
+“Did you know that ‘if’ is the middle word in life?” — Apocalypse Now 
+“Never underestimate the power of denial.” — American Beauty 
+“Everything in life can, in one way or another, be related back to an episode of Seinfeld.” — Universal Seinfeld Theorem 
+“Life is simple... it's people that complicate it!!!” — Anonymous 
+“We complicate things that are simple for no rational purpose that I can imagine.” — Anonymous 
+“It's the job that's never started as takes longest to finish.” — Samwise Gamgee 
+“You could be gone in a blink! You really have nothing to lose.” — Dustin Curtis

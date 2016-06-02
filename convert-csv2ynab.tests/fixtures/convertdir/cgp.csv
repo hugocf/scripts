@@ -1,0 +1,40 @@
+,,,,
+Número de conta:: ,00024861210001,Data início: ,01-01-2013,
+Data fim: ,31-12-2013,Últimos movimentos: ,Últimos movimentos,
+Tipo de Movimento: ,Todos os tipos,,,
+,,,,
+DATA VALOR,DESCRIÇÃO,MONTANTE,SALDO,MOEDA
+09-01-2013,Transf. de ANTONIO FILIPE MARTINS,"375,00","469,26",EUR
+27-01-2013,Pagamento de Amort./Renda,"-343,74","125,52",EUR
+31-01-2013,Transf. de TANIA JANEIRO,"375,00","500,52",EUR
+27-02-2013,Pagamento de Amort./Renda,"-343,57","156,95",EUR
+03-04-2013,Recepção TEI DRA SUSANA PECHIRRA CAETANO,"600,00","756,95",EUR
+03-04-2013,Pagamento de Amort./Renda,"-343,57","413,38",EUR
+03-04-2013,Juros de mora,"-0,43","412,95",EUR
+03-04-2013,Comissão atraso prestação,"-30,00","382,95",EUR
+03-04-2013,Imposto selo s/ comissão,"-1,20","381,75",EUR
+03-04-2013,Imposto selo s/ juros de mora,"-0,02","381,73",EUR
+27-04-2013,Pagamento de Amort./Renda,"-343,57","38,16",EUR
+08-05-2013,Ordem de pagamento recebida,"350,00","388,16",EUR
+27-05-2013,Pagamento de Amort./Renda,"-343,57","44,59",EUR
+18-06-2013,Ordem de pagamento recebida,"700,00","744,59",EUR
+27-06-2013,Pagamento de Amort./Renda,"-343,57","401,02",EUR
+27-07-2013,Pagamento de Amort./Renda,"-343,57","57,45",EUR
+09-08-2013,Ordem de pagamento recebida,"350,00","407,45",EUR
+27-08-2013,Pagamento de Amort./Renda,"-343,57","63,88",EUR
+07-10-2013,Ordem de pagamento recebida,"350,00","413,88",EUR
+07-10-2013,Pagamento de Amort./Renda,"-343,57","70,31",EUR
+07-10-2013,Juros de mora,"-0,52","69,79",EUR
+07-10-2013,Comissão atraso prestação,"-13,74","56,05",EUR
+07-10-2013,Imposto selo s/ comissão,"-0,55","55,50",EUR
+07-10-2013,Imposto selo s/ juros de mora,"-0,02","55,48",EUR
+04-11-2013,Ordem de pagamento recebida,"350,00","405,48",EUR
+04-11-2013,Pagamento de Amort./Renda,"-343,57","61,91",EUR
+04-11-2013,Juros de mora,"-0,42","61,49",EUR
+04-11-2013,Comissão atraso prestação,"-13,74","47,75",EUR
+04-11-2013,Imposto selo s/ comissão,"-0,55","47,20",EUR
+04-11-2013,Imposto selo s/ juros de mora,"-0,02","47,18",EUR
+20-11-2013,Ordem de pagamento recebida,"700,00","747,18",EUR
+27-11-2013,Pagamento de Amort./Renda,"-343,57","403,61",EUR
+05-12-2013,Ordem de pagamento recebida,"350,00","753,61",EUR
+27-12-2013,Pagamento de Amort./Renda,"-343,57","410,04",EUR
