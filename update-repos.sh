@@ -82,9 +82,14 @@ function set_repo_email {
 }
 
 function sync_with_remote {
+    # autostash is only available since git version 2.9
+    # for earlier versions use: git config --global rebase.autoStash true
+    local version=$(git --version | cut -d' ' -f3)
+    local autostash=$([[ $version < 2.9 ]] && echo "" || echo "--autostash")
+    
     git fetch --all --prune
     git checkout master
-    git pull
+    git pull --rebase $autostash
 }
 
 # Parse command line options
