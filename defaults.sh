@@ -7,6 +7,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { "list-type" = 1; }; "tile-type" = "recents-tile"; }'
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# https://discussions.apple.com/docs/DOC-8691
 defaults write com.apple.loginwindow PowerButtonSleepsSystem -bool false
 
 # Apps
