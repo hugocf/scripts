@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # Created by Hugo Ferreira <hugo@ferreira.cc> on 2009-04-28.
 # Copyright (c) 2009 Hugo Ferreira. All Rights Reserved. 
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
 
 require 'optparse'
 

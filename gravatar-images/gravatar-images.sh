@@ -2,7 +2,7 @@
 
 # Created by Hugo Ferreira <hugo@mindclick.info> on 2011-02-07.
 # Copyright (c) 2011 Mindclick. All Rights Reserved.
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
 readonly BASEDIR=$(cd $(dirname $0) && pwd)
 readonly CALLDIR=$(pwd)
 

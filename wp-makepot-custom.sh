@@ -2,7 +2,7 @@
 
 # Created by Hugo Ferreira <hugo@mindclick.info> on 2014-02-09.
 # Copyright (c) 2014 Mindclick. All Rights Reserved.
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
 readonly BASEDIR=$(cd "$(dirname "$0")" && pwd) # where the script is located
 readonly CALLDIR=$(pwd)                         # where it was called from
 readonly STATUS_SUCCESS=0                       # exit status for commands

@@ -1,6 +1,6 @@
 # Created by Hugo Ferreira <hugo@mindclick.info> on 2010-11-03.
 # Copyright (c) 2010 Mindclick. All Rights Reserved.
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
  
 #
 # Fetchs all the remoted branches from a list of local repos.

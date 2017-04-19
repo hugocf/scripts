@@ -4,7 +4,7 @@
 #
 # Created by Hugo Ferreira <hugo@ferreira.cc> on 2009-11-15.
 # Copyright (c) 2009 Hugo Ferreira. All Rights Reserved. 
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
 
 set -e # exit on error
 

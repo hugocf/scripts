@@ -2,7 +2,7 @@
 
 # Created by Hugo Ferreira <hugo@mindclick.info> on 2010-06-02.
 # Copyright (c) 2010 Mindclick. All Rights Reserved.
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
 
 usage() {
     echo "Usage: `basename $0` [options] csvfile

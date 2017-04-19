@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Created by Hugo Ferreira <hugo@mindclick.info> on 2010-11-02.
 # Copyright (c) 2010 Mindclick. All Rights Reserved.
-# Licensed under the BSD License: http://creativecommons.org/licenses/BSD
+# Licensed under the MIT License: https://opensource.org/licenses/MIT
 
 #
 # Checks several reference settings on a new *nix system.
