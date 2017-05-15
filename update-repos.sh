@@ -45,7 +45,10 @@ function update_repo {
     cd "$repo"
     show_header "$repo"
     set_repo_email "$email"
-    sync_with_remote 2>&1 | grep --color -E 'error|$'
+    sync_with_remote 2>&1 | 
+        GREP_COLOR='01;31' grep --color=always -E 'error|$' | 
+        GREP_COLOR='01;32' grep --color=always -E "Your branch is ahead|$" | 
+        GREP_COLOR='01;33' grep --color=always -E "Your branch is behind|$"
     cd "$origin"
 }
 
