@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-
 # Created by Hugo Ferreira <hugo@ferreira.cc> on isoD
 # Licensed under the MIT License: https://opensource.org/licenses/MIT
+
+set -u  # unset variables are errors
+
 readonly BASEDIR=$(cd "$(dirname "$0")" && pwd) # where the script is located
 readonly CALLDIR=$(pwd)                         # where it was called from
 readonly SUCCESS=0                              # exit status of bash commands
