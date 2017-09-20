@@ -2,7 +2,8 @@
 # Created by Hugo Ferreira <hugo@ferreira.cc> on isoD
 # Licensed under the MIT License: https://opensource.org/licenses/MIT
 
-set -u  # unset variables are errors
+# NOTE: DOESN’T ALLOW OPTIONAL FUNCTION PARAMETERS!
+set -u  # treat unset variables as errors
 
 readonly BASEDIR=$(cd "$(dirname "$0")" && pwd) # where the script is located
 readonly CALLDIR=$(pwd)                         # where it was called from
@@ -68,9 +69,9 @@ done
 shift $(($OPTIND - 1));     # take out the option flags
 
 # Validate input parameters
-parameter=$(ask_if_empty "$1" "default value" "Enter the parameter value:")
+parameter=$(ask_if_empty "$1" "default value" "Enter the parameter value:" "")
 echo $parameter
 
 # Do the work
-:
+:   # noop
 read -p "Press any key to continue..." -n1 -s
