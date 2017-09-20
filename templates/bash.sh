@@ -41,6 +41,15 @@ function ask_if_empty {
     echo "$value"
 }
 
+# Function calling with named parameters:
+# $ example name=someone param="foo bar"
+# > someone received foo bar ()
+example () {
+    local name param another
+    local "$@"
+    echo "$name received $param ($another)"
+}
+
 # Exit and show help if the command line is empty
 [[ ! "$*" ]] && usage 1
 
