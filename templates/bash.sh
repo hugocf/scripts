@@ -2,7 +2,6 @@
 # Created by Hugo Ferreira <hugo@ferreira.cc> on isoD
 # Licensed under the MIT License: https://opensource.org/licenses/MIT
 
-# NOTE: DOESN’T ALLOW OPTIONAL FUNCTION PARAMETERS!
 set -u  # treat unset variables as errors
 
 readonly BASEDIR=$(cd "$(dirname "$0")" && pwd) # where the script is located
