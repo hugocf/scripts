@@ -46,10 +46,11 @@ check_something () {
 
 # Function calling with named parameters:
 # $ example name=someone param="foo bar"
-# > someone received foo bar ()
+# > someone received foo bar (default)
 example () {
     local name param another
     local "$@"
+    local another=${another:-default}
     echo "$name received $param ($another)"
 }
 
