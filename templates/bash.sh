@@ -40,6 +40,10 @@ ask_if_empty () {
     echo "$value"
 }
 
+check_something () {
+    [[ -z "" ]] && (echo "Error: Something is missing"; exit 1)
+}
+
 # Function calling with named parameters:
 # $ example name=someone param="foo bar"
 # > someone received foo bar ()
@@ -69,6 +73,9 @@ shift $(($OPTIND - 1));     # take out the option flags
 # Validate input parameters
 parameter=$(ask_if_empty "$1" "default value" "Enter the parameter value:" "")
 echo $parameter
+
+# Validate
+check_something
 
 # Do the work
 :   # noop
