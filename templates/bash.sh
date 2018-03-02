@@ -44,14 +44,28 @@ check_something () {
     [[ -z "" ]] && (echo "Error: Something is missing"; exit 1)
 }
 
+# Function calling with positional parameters:
+#
+#   $ example_positional some "foo bar"
+#   1st=some 2nd=foo bar 3rd=
+#
+example_positional () {
+    local -r readonly=$1
+    local writable=$2
+    local optional="${3:-}"
+    echo "1st=$readonly 2nd=$writable 3rd=$optional"
+}
+
 # Function calling with named parameters:
-# $ example name=someone param="foo bar"
-# > someone received foo bar (default)
-example () {
+#
+#   $ example_named name=some param="foo bar"
+#   1st=some 2nd=foo bar 3rd=default
+#
+example_named () {
     local name param another
     local "$@"
     local another=${another:-default}
-    echo "$name received $param ($another)"
+    echo "1st=$name 2nd=$param 3rd=$another"
 }
 
 # Exit with usage if no params received
