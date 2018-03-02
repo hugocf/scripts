@@ -53,13 +53,14 @@ example () {
     echo "$name received $param ($another)"
 }
 
-# Exit and show help if the command line is empty
+# Exit with usage if no params received
 [[ ! "$*" ]] && usage 1
 
-# Initialise options
-n_value="value if option is missing"
+# Go home...
+cd "$BASEDIR"
 
-# Parse command line options
+# Parse options
+n_value="default value if option is missing"
 while getopts abn:h option; do
     case $option in
         a|b) is_flag=1 ;;
@@ -70,7 +71,7 @@ while getopts abn:h option; do
 done
 shift $(($OPTIND - 1));     # take out the option flags
 
-# Validate input parameters
+# Set inputs
 parameter=$(ask_if_empty "$1" "default value" "Enter the parameter value:" "")
 echo $parameter
 
