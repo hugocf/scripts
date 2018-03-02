@@ -13,8 +13,7 @@ readonly CONSTANT="value"
 
 # Script functions
 usage () {
-    echo "
-Description of the script.
+    echo "Description of the script.
 
 Usage:
     $(basename $0) [options] param
