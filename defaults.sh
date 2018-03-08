@@ -17,6 +17,7 @@ defaults write com.apple.mail EnableBundles -bool true
 defaults write com.apple.MenuBarClock Use24HourClock -bool true     # Keynote
 defaults write com.macromates.TextMate.preview allowExpandingLinks -bool YES
 defaults write com.macromates.TextMate.preview disableTabReordering -bool YES
+defaults write org.shiftitapp.ShiftIt multipleActionsCycleWindowSizes YES
 
 ##
 ## Unused
