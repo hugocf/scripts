@@ -32,7 +32,7 @@ ask_if_empty () {
     local value="$1"
     local default="$2"
     local message="$3"
-    local options="$4"  # pass "-s" for passwords
+    local options="${4:-}"  # pass "-s" for passwords
     if [[ -z "$value" ]]; then
         read $options -p "$message [$default] " value
     fi
@@ -87,7 +87,7 @@ done
 shift $(($OPTIND - 1));     # take out the option flags
 
 # Set inputs
-parameter=$(ask_if_empty "$1" "default value" "Enter the parameter value:" "")
+parameter=$(ask_if_empty "${1:-}" "default value" "Enter the parameter value:" "")
 echo $parameter
 
 # Validate
