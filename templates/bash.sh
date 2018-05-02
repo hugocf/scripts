@@ -36,8 +36,7 @@ ask_if_empty () {
     if [[ -z "$value" ]]; then
         read $options -p "$message [$default] " value
     fi
-    value=$(echo ${value:-$default})
-    echo "$value"
+    echo "${value:-$default}"
 }
 
 check_something () {
