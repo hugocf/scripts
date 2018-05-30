@@ -2,9 +2,11 @@
 # see https://www.npmjs.com/package/ttab#manual-installation
 # via http://stackoverflow.com/questions/7171725/open-new-terminal-tab-from-command-line-mac-os-x
 
+#!/usr/bin/env bash
+
 kTHIS_HOMEPAGE='https://github.com/mklement0/ttab'
 kTHIS_NAME=${BASH_SOURCE##*/}
-kTHIS_VERSION='v0.5.0' # NOTE: This assignment is automatically updated by `make version VER=<newVer>` - DO keep the 'v' prefix.
+kTHIS_VERSION='v0.6.1' # NOTE: This assignment is automatically updated by `make version VER=<newVer>` - DO keep the 'v' prefix.
 
 unset CDPATH  # To prevent unexpected `cd` behavior.
 
@@ -57,6 +59,11 @@ printUsage() {
   fi
 }
 
+# Indicate by exit code whether the OS version is 10.13 (High Sierra) or above.
+isHighSierraOrAbove() {  # High Sierra == macOS 10.13
+  (( $(sw_vers -productVersion | awk -F. '{ print $2 }') >= 13 ))
+}
+
 # --- End: STANDARD HELPER FUNCTIONS
 
 # ---  PROCESS STANDARD, OUTPUT-INFO-THEN-EXIT OPTIONS.
@@ -90,7 +97,9 @@ printScript=0 dryRun=0
 { [[ $1 == '--dry-run' ]] && { dryRun=1; shift; }; } || { [[ $1 == '--print-script' ]] && { printScript=1; shift; }; }
 
 # Parse options
+
 dirAbs=''
+doNotChangeDir=0
 tabTitle=''
 settingsName=''
 inBackground=0
@@ -113,7 +122,8 @@ while getopts ':wgGqs:t:d:a:' opt; do  # $opt will receive the option *letters* 
       ;;
     d)
       dir=$OPTARG
-      dirAbs=$(cd -- "$dir" 2>/dev/null && echo "$PWD") || die "No such directory: $dir"
+      [[ -z $dir ]] && doNotChangeDir=1
+      (( doNotChangeDir )) || { dirAbs=$(cd -- "$dir" 2>/dev/null && echo "$PWD") || die "No such directory: $dir"; }
       ;;
     a)
       terminalApp=$OPTARG
@@ -196,9 +206,10 @@ if (( inNewWin )); then # create the tab in a NEW WINDOW
         CMD_NEWTAB_1='create window with profile "'"$settingsName"'"'
       else
         CMD_NEWTAB_1='create window with default profile'
-      fi  
+      fi
       if (( inBackground == 2 )); then # For use with -G: commands for saving and restoring the previous state within iTerm
         CMD_SAVE_ACTIVE_TAB='set prevWin to current window'
+        # !! Sadly, neither `set current window to` nor `set frontmost of <window> to true` work, so we must use GUI scripting.
         CMD_REACTIVATE_PREV_TAB='tell application "System Events" to perform action "AXRaise" of window (name of prevWin) of application process "iTerm2"'
       fi
     fi
@@ -251,29 +262,40 @@ else # Create the new tab in the CURRENT WINDOW (unlike `do shell script` with n
     fi
     CMD_NEWTAB_2='set newTab to selected tab of front window'
     if (( inBackground == 2 )); then # For use with -G: commands for saving and restoring the previous state within Terminal
-      CMD_SAVE_ACTIVE_TAB='set prevTab to (selected tab of front window)'
-      CMD_REACTIVATE_PREV_TAB='set selected of prevTab to true'
+      if isHighSierraOrAbove; then
+        # !! In 10.13 (High Sierra), Terminal.app switched to treating tabs like individual *windows*.
+        CMD_SAVE_ACTIVE_TAB='set prevTab to front window'
+        CMD_REACTIVATE_PREV_TAB='set frontmost of prevTab to true'
+      else
+        CMD_SAVE_ACTIVE_TAB='set prevTab to (selected tab of front window)'
+        CMD_REACTIVATE_PREV_TAB='set selected of prevTab to true'
+      fi
     fi
     
   fi
 
 fi
 
+  # Define the command that *synchronously* actives iTerm / Terminal.
+  # Note that this is neeeded both with and without -g / -G:
+  #   * With -g / -G, unfortunately, the terminal app must still be activated briefly
+  #     in order for GUI scripting to work correctly, with the previously active
+  #     application getting reactivated afterward.
+  #   * With foregound operation, we also activate explicitly, so as to support
+  #     invocation from helper apps such as Alfred where the terminal may be 
+  #     created implicitly and not gain focus by default. 
+  # !! On 10.10+, activate is no longer *synchronous*, so we must wait until Terminal is truly activated (frontmost)
+CMD_ACTIVATE='if not frontmost then
+  activate
+  repeat until frontmost
+      delay 0.1
+  end repeat
+end if'
+
     # For use with -g and -G: commands for saving and restoring the previous application
 if (( inBackground )); then
-  CMD_SAVE_ACTIVE_APPNAME='set prevAppName to name of application (path to frontmost application as text)'
-  CMD_REACTIVATE_PREV_APP='activate application prevAppName'
-  # !! With -g and -G, sadly, we must, unfortunately, briefly activate Terminal in order for the menu-command GUI scripting to work correctly, then reactivate the previously active application.
-  # !! On 10.10+, activate is no longer *synchronous*, so we must wait until Terminal is truly activated (frontmost)
-  CMD_ACTIVATE='activate
-  repeat until frontmost
-      delay 0.1
-  end repeat'
-else # foreground operation (backgrounding with -g or -G NOT requested) - we activate explicitly, so as to support invocation from helper apps such as Alfred where the terminal may be created implicitly and not gain focus by default. 
-  CMD_ACTIVATE='activate
-  repeat until frontmost
-      delay 0.1
-  end repeat'
+  CMD_SAVE_ACTIVE_APPNAME='set prevAppPath to path to frontmost application as text'
+  CMD_REACTIVATE_PREV_APP='activate application prevAppPath'
 fi
 
   # Optional commands that are only used if the relevant options were specified.
@@ -329,7 +351,7 @@ if (( iTerm || targetTermSpecified )); then
 else
     # While Terminal.app does default to the caller's current dir. when creating a tab
     # in the *current* window, it doesn't necessarily know the *immediate caller's* true $PWD,
-    # so we have to compensate for that""
+    # so we have to compensate for that:
     #   Terminal.app only knows the working directory of the *top-level* shell running in each tab (as it defines an aux. function,
     #   update_terminal_cwd(), that is called via $PROMPT_COMMAND every time the prompt is displayed).
     #   Thus, when this script is invoked inside another script, it is the *top-level* shell's working directory that is invariably used by
@@ -343,8 +365,8 @@ else
   fi
 fi
 
-  # Prepend the 'cd' command, if specified or needed.
-if [[ -n $dirAbs ]]; then
+# Prepend the 'cd' command, if specified or needed and unless suppress.
+if [[ $doNotChangeDir -eq 0 && -n $dirAbs ]]; then
   quotedCdCmd=$(printf 'cd %q' "$dirAbs")
   if [[ -n $quotedShellCmds ]]; then
     quotedShellCmds="$quotedCdCmd;$quotedShellCmds"
@@ -404,8 +426,8 @@ fi
 read -d '' -r script <<EOF
 $CMD_SAVE_ACTIVE_APPNAME
 tell application "$terminalApp"
-  $CMD_SAVE_ACTIVE_TAB
   $CMD_ACTIVATE
+  $CMD_SAVE_ACTIVE_TAB
   $CMD_NEWTAB_1
   $CMD_NEWTAB_2
   $CMD_TITLE
@@ -481,7 +503,8 @@ Opens a new terminal tab or window in OS X's Terminal application or iTerm2.
     -q                  clear the new tab's screen
     -g                  create tab in background (don't activate Terminal/iTerm)
     -G                  create tab in background and don't activate new tab
-    -d <dir>            specify working directory
+    -d <dir>            specify working directory; -d '' disables inheriting
+                        the current dir.
     -a Terminal|iTerm2  open tab or window in Terminal.app / iTerm2  
     <cmd> ...           command to execute in the new tab
     "<cmd> ...; ..."    multi-command command line (passed as single operand)
@@ -543,7 +566,7 @@ Precede `exit` with `read -rsn 1` to wait for a keystroke first.
  * `-d <dir>`  
     explicitly specifies a working directory for the new tab; by default, the  
     invoking shell's working directory is inherited (even if `-w` is also  
-    specified).
+    specified) - use `-d ''` to disable.
 
  * `-q`  
     (*q*uiet) issues a `clear` command after opening the new tab.  
