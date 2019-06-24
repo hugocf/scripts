@@ -91,7 +91,7 @@ function sync_with_remote {
     local autostash=$([[ $version < 2.9 ]] && echo "" || echo "--autostash")
     
     git fetch --all --prune
-    git checkout master
+    git checkout develop 2> /dev/null || git checkout master
     git pull --rebase $autostash
 }
 
