@@ -111,7 +111,7 @@ email="$2"
 # Do the work (tweak IFS to handle folders with spaces)
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
-for repo in $(find "$folder" -name .git | grep -v .terraform | xargs -I{} dirname "{}"); do
+for repo in $(find "$folder" -name .git -maxdepth 2 | grep -v .terraform | xargs -I{} dirname "{}"); do
     time update_repo "$repo" "$email"
 done
 IFS=$SAVEIFS
