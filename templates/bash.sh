@@ -39,8 +39,31 @@ ask_if_empty () {
     echo "${value:-$default}"
 }
 
-check_something () {
-    [[ -z "" ]] && (echo "Error: Something is missing"; exit 1)
+check_file_exists () {
+    local what=${1:-}
+    if [[ ! -f "$what" ]]; then
+        >&2 echo "Error: Could not find '$what'"    # stderr
+        exit 1
+     fi
+}
+
+check_tool_exists () {
+    local what=${1:-}
+    local how=${2:-brew install $what}
+    if ! command -v $what > /dev/null; then
+        >&2 echo "Error: '$what' command not found"     # stderr
+        >&2 echo "Try: $how"                            # stderr
+        exit 1
+    fi
+}
+
+check_var_exists () {
+    local what=${1:-}
+    if [[ -z "${!what}" ]]; then
+        >&2 echo "Error: Did not find value for '$what'"    # stderr
+        >&2 echo "Try: export $what=something"              # stderr
+        exit 1
+     fi
 }
 
 # Function calling with positional parameters:
@@ -67,6 +90,13 @@ example_named () {
     echo "1st=$name 2nd=$param 3rd=$another"
 }
 
+# Exit if this script was not sourced as an import
+# if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+#     >&2 echo "Error: Must run as an import source"    # stderr
+#     >&2 echo "Try: source \"${BASH_SOURCE[0]}\""      # stderr
+#     exit
+# fi
+
 # Exit with usage if no params received
 [[ ! "$*" ]] && usage 1
 
@@ -90,7 +120,9 @@ parameter=$(ask_if_empty "${1:-}" "default value" "Enter the parameter value:" "
 echo $parameter
 
 # Validate
-check_something
+check_file_exists $0
+check_tool_exists ls
+check_var_exists HOME
 
 # Do the work
 :   # noop
