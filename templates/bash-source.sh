@@ -4,9 +4,10 @@
 
 set -u  # treat unset variables as errors
 
+# Exit if this script was not sourced as an import
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    echo "Error: Must run as an import source"
-    echo "Try: source ${BASH_SOURCE[0]}"
+    >&2 echo "Error: Must run as an import source"    # stderr
+    >&2 echo "Try: source \"${BASH_SOURCE[0]}\""      # stderr
     exit
 fi
 

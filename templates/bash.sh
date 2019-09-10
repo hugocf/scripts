@@ -90,13 +90,6 @@ example_named () {
     echo "1st=$name 2nd=$param 3rd=$another"
 }
 
-# Exit if this script was not sourced as an import
-# if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-#     >&2 echo "Error: Must run as an import source"    # stderr
-#     >&2 echo "Try: source \"${BASH_SOURCE[0]}\""      # stderr
-#     exit
-# fi
-
 # Exit with usage if no params received
 [[ ! "$*" ]] && usage 1
 
