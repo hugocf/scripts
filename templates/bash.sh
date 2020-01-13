@@ -59,7 +59,7 @@ check_tool_exists () {
 
 check_var_exists () {
     local what=${1:-}
-    if [[ -z "${!what}" ]]; then
+    if [[ -z "${!what:-}" ]]; then
         >&2 echo "Error: Did not find value for '$what'"    # stderr
         >&2 echo "Try: export $what=something"              # stderr
         exit 1
