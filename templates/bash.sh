@@ -59,9 +59,10 @@ check_tool_exists () {
 
 check_var_exists () {
     local what=${1:-}
+    local value=${2:-something}
     if [[ -z "${!what:-}" ]]; then
         >&2 echo "Error: Did not find value for '$what'"    # stderr
-        >&2 echo "Try: export $what=something"              # stderr
+        >&2 echo "Try: export $what=$value"                 # stderr
         exit 1
      fi
 }
@@ -115,7 +116,7 @@ echo $parameter
 # Validate
 check_file_exists $0
 check_tool_exists ls
-check_var_exists HOME
+check_var_exists HOME "path/to/home"
 
 # Do the work
 :   # noop
