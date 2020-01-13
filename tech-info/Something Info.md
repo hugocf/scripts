@@ -1,6 +1,6 @@
 # Something Info
 
-*(more recent on top)*
+*(most recent on top)*
 
 [TOC]
 
@@ -31,4 +31,8 @@
 ```
 # another code snippet
 ```
+
+
+
+---
 
