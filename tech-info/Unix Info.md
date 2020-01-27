@@ -162,6 +162,16 @@ echo $json | jq -c '.[] | [{ "key": .name, "value": .id }] | from_entries'
 # { "a": 1, "b": 2 }
 ```
 
+*… default `null` to empty string*
+
+```shell
+value=$(jq -r '.path.to.attr')
+echo ">$value<"		# >null<
+
+value=$(jq -r '.path.to.attr // empty')
+echo ">$value<"		# ><
+```
+
 
 
 ## Special tips about `sed`
