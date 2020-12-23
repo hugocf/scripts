@@ -47,7 +47,7 @@
 ## citation
 
 ```html
-<cite>person_or_title</cite>
+<cite>person or title</cite>
 ```
 
 
@@ -55,7 +55,7 @@
 ## code
 
 ```html
-<code>programing_language</code>
+<code>computer code</code>
 ```
 
 
@@ -63,7 +63,7 @@
 ## definition
 
 ```html
-<dfn title="title">defining_instance</dfn>
+<dfn title="explanation">term</dfn>
 ```
 
 
@@ -71,7 +71,7 @@
 ## delete
 
 ```html
-<del>deleted_text</del>
+<del>deleted text</del>
 ```
 
 
@@ -90,7 +90,7 @@
 ## emphasis
 
 ```html
-<em>emphatic_stress</em>
+<em>emphatic text</em>
 ```
 
 
@@ -110,7 +110,7 @@
 ## image
 
 ```html
-<img src="http://placehold.it/100x100.png" alt="">
+<img src="http://placehold.it/100x100.png" alt="image description">
 ```
 
 
@@ -118,7 +118,7 @@
 ## insert
 
 ```html
-<ins>inserted_text</ins>
+<ins>inserted text</ins>
 ```
 
 
@@ -126,18 +126,30 @@
 ## keyboard
 
 ```html
-<kbd>user_input</kbd>
+<kbd>user keyboard input</kbd>
 ```
 
 
 
 ## list
 
+*… ordered*
+
+```html
+<ol>
+<li>item</li>
+<li>item</li>
+<li>item</li>
+</ol>
+```
+
+*… unordered*
+
 ```html
 <ul>
-<li></li>
-<li></li>
-<li></li>
+<li>item</li>
+<li>item</li>
+<li>item</li>
 </ul>
 ```
 
@@ -146,7 +158,7 @@
 ## marked / highlight
 
 ```html
-<mark>marked_highlighted_text</mark>
+<mark>marked/highlighted text</mark>
 ```
 
 
@@ -154,7 +166,7 @@
 ## sample output
 
 ```html
-<samp>sample_output</samp>
+<samp>sample output</samp>
 ```
 
 
@@ -162,7 +174,7 @@
 ## small print
 
 ```html
-<small>small_print</small>
+<small>copyright or side-comments</small>
 ```
 
 
@@ -170,7 +182,7 @@
 ## strong
 
 ```html
-<strong>strong_importance</strong>
+<strong>strong importance</strong>
 ```
 
 
@@ -196,12 +208,12 @@
 ```html
 <table>
   <tr>
-    <th></th>
-    <th></th>
+    <th>header cell</th>
+    <th>header cell</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
+    <td>value cell</td>
+    <td>value cell</td>
   </tr>
 </table>
 ```
@@ -211,7 +223,7 @@
 ## variable
 
 ```html
-<var>variable_or_placeholder_text</var>
+<var>code or math variable</var>
 ```
 
 
