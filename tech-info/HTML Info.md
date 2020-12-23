@@ -1,6 +1,6 @@
 # HTML Info
 
-*(most recent on top)*
+*(alphabetical order)*
 
 [TOC]
 
