@@ -95,6 +95,21 @@
 
 
 
+## figure
+
+> The `img` tag is used to embed the image in an HTML document whereas the `figure` tag is used to semantically organize the content of an image in the HTML document.
+>
+> — [HTML5 - When to use figure tag - Learning Journal](https://www.learningjournal.guru/article/html5/html5-when-to-use-figure-tag/)
+
+```html
+<figure>
+  <img src="http://placehold.it/100x100.png" alt="image description">
+  <figcaption>Image caption</figcaption>
+</figure>
+```
+
+
+
 ## footnote
 
 ```html
@@ -103,6 +118,22 @@
 
 ```html
 <small><sup>1</sup> footnote</small>
+```
+
+
+
+## heading / titles
+
+> `h1`–`h6` elements **must not** be used to markup subheadings, subtitles, alternative titles and taglines unless intended to be the heading for a new section or subsection.
+>
+> — [How to mark up subheadings, subtitles, alternative titles and taglines | HTML5 Doctor](http://html5doctor.com/howto-subheadings/)
+
+```html
+<header>
+   <h2>Title</h2>
+   <p>Tagline or subtitle</p>
+</header>
+<p>Content</p>
 ```
 
 
@@ -155,11 +186,40 @@
 
 
 
+## main
+
+> There must not be more than one `<main>` element in a document.
+>
+> — [HTML main Tag](https://www.w3schools.com/tags/tag_main.asp)
+
+```html
+<main>content unique to the document</main>
+```
+
+
+
 ## marked / highlight
 
 ```html
 <mark>marked/highlighted text</mark>
 ```
+
+
+
+## page structure
+
+*  [HTML Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
+
+```html
+<header>header</header>
+<nav>nav</nav>
+<section>section</section>
+<article>article</article>
+<aside>aside</aside>
+<footer>footer</footer>
+```
+
+![img_sem_elements](HTML Info/img_sem_elements.gif)
 
 
 
@@ -216,6 +276,16 @@
     <td>value cell</td>
   </tr>
 </table>
+```
+
+
+
+## time
+
+*  [<time> - Valid `datetime`Values](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time#Valid_datetime_Values)
+
+```html
+Dinner at <time>20:00</time> on <time datetime="2020-12-31">New Year’s eve</tim>
 ```
 
 
