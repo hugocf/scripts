@@ -29,8 +29,8 @@
 
 ```html
 <blockquote>
-    <p>Quote.</p>
-    <footer>— <cite class="author">Author</cite> (in <cite class="title">Source</cite>)</footer>
+  <p>Quote.</p>
+  <footer>— <cite class="author">Author</cite> (in <cite class="title">Source</cite>)</footer>
 </blockquote>
 ```
 
@@ -80,9 +80,8 @@
 
 ```html
 <details>
-    <summary>Collapsed title</summary>
-
-    Fixed width text
+  <summary>Collapsed title</summary>
+  <p>Content</p>
 </details>
 ```
 
