@@ -4,6 +4,34 @@
 
 [TOC]
 
+## Quick `curl` recipes
+
+*  [Curl Cookbook](https://catonmat.net/cookbooks/curl) *(with many other recipes)*
+   *   [Debug Curl Requests (TLDR: Use -v or --trace arguments) – Curl Cookbook](https://catonmat.net/cookbooks/curl/debug-curl-requests)
+   *   [Make Curl Slow (TLDR: Use --limit-rate argument) – Curl Cookbook](https://catonmat.net/cookbooks/curl/make-curl-slow)
+
+```shell
+# silence the progress bar
+curl -s http://example.com
+```
+
+```shell
+# show response headers
+curl -i http://example.com
+```
+
+```shell
+# follow redirects
+curl -L http://example.com
+```
+
+```shell
+# post json data (`-d` implies `-X POST`)
+curl -H 'Content-Type: application/json' -d '{"key": "value"}' http://example.com
+```
+
+
+
 ## Check and make sure a script is sourced
 
 ```shell
