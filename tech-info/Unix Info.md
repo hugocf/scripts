@@ -162,8 +162,8 @@ unzip -c some.jar path/to/file.txt
 ```shell
 # from a variable
 json='[{"name":"a", "id":1, "extra":"foo"}, {"name":"b", "id":2, "extra":"bar"}]'
-echo $json | jq .  # using heredoc
-jq . <<< "$json"   # using pipes
+echo $json | jq .  # using pipe
+jq . <<< "$json"   # using here string
 
 # from a file
 echo "$json" > /tmp/example.json
