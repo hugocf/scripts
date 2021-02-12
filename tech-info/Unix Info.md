@@ -186,8 +186,7 @@ echo $json| jq -c 'from_entries'  # { "a": 1, "b": 2 }
 
 ```shell
 json='[{"name":"a", "id":1, "extra":"foo"}, {"name":"b", "id":2, "extra":"bar"}]'
-echo $json | jq -c '.[] | [{ "key": .name, "value": .id }] | from_entries'
-# { "a": 1, "b": 2 }
+echo $json | jq -c '.[] | [{ "key": .name, "value": .id }] | from_entries'  # { "a": 1, "b": 2 }
 ```
 
 *… default `null` to empty string*
@@ -198,6 +197,22 @@ echo ">$value<"		# >null<
 
 value=$(jq -r '.path.to.attr // empty')
 echo ">$value<"		# ><
+```
+
+*… convert array to a new one with a subset of keys*
+
+```shell
+json='[{"name":"a", "id":1, "extra":"foo"}, {"name":"b", "id":2, "extra":"bar"}]'
+echo $json | jq -c '[.[] | { name, id }]'  # [{"name":"a","id":1},{"name":"b","id":2}]
+```
+
+*… convert json to csv*
+* [How to convert arbitrary simple JSON to CSV using jq? - Stack Overflow](https://stackoverflow.com/questions/32960857/how-to-convert-arbitrary-simple-json-to-csv-using-jq#32965227)
+
+```shell
+json='[{"name":"a", "id":1, "extra":"foo"}, {"name":"b", "id":2, "extra":"bar"}]'
+echo $json | jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv'
+# [{"name":"a","id":1},{"name":"b","id":2}]
 ```
 
 
