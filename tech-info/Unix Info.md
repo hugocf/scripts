@@ -157,6 +157,19 @@ unzip -c some.jar path/to/file.txt
 -S	--sort-keys
 ```
 
+*… feed json into jq*
+
+```shell
+# from a variable
+json='[{"name":"a", "id":1, "extra":"foo"}, {"name":"b", "id":2, "extra":"bar"}]'
+echo $json | jq .  # using heredoc
+jq . <<< "$json"   # using pipes
+
+# from a file
+echo "$json" > /tmp/example.json
+jq . < /tmp/example.json
+```
+
 *… subset of keys*
 
 ```shell
