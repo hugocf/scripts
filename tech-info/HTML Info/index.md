@@ -219,7 +219,7 @@
 <footer>footer</footer>
 ```
 
-![img_sem_elements](HTML Info/img_sem_elements.gif)
+![layout illustrating the relative page placement of the semantic tags: header, nav, section, article, aside, and footer](semantic-elements.gif)
 
 
 
