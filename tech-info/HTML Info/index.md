@@ -22,24 +22,41 @@
 
 ## blockquote
 
+- [`<q>`: The Inline Quotation element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q#specifications)
+- [`<blockquote>`: The Block Quotation element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote#specifications)
+- [`<cite>`: The Citation element - HTML: HyperText Markup Language | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite#specifications)
+  - <q>… for screen readers</q>
+
+*… inline*
+
 ```html
-<blockquote>
-</blockquote>
+Inline <q>simple quote</q>.
+Inline <q cite="http://example.com">quote with citation</q>.
 ```
+
+*… simple*
 
 ```html
 <blockquote>
-  <p>Quote.</p>
+  <p>Simple quote.</p>
+</blockquote>
+```
+
+*… with citation*
+
+```html
+<blockquote>
+  <p>Quote with citation.</p>
   <footer>— <cite class="author">Author</cite> (in <cite class="title">Source</cite>)</footer>
 </blockquote>
 ```
 
-*(in Markdown, via [StackOverflow](https://stackoverflow.com/a/2002150))*
+*… in Markdown, via [StackOverflow](https://stackoverflow.com/a/2002150)*
 
 ```markdown
-> Quote.
->
-> — <cite>Author</cite>
+> Quote with citation.
+> 
+> — <cite>Author</cite> in <cite>[Source](http://example.com)</cite>
 ```
 
 
