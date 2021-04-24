@@ -115,20 +115,25 @@ echo ${1:-X}  # => X
 
 
 
-## Use multiline heredoc or var as an input file
+## Use multiline heredoc, herestring, and var as an input file
 
 ```shell
 cat <<WORD
-lorem
-ipsum
+here
+doc
 WORD
 ```
 
 ```shell
-echo "\
+cat <<< "here string"
+```
+
+```shell
+text="\
 lorem
 ipsum
 "
+cat <<< "$text"
 ```
 
 
