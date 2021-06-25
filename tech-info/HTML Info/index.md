@@ -147,8 +147,8 @@ Inline <q cite="http://example.com">quote with citation</q>.
 
 ```html
 <header>
-   <h2>Title</h2>
-   <p>Tagline or subtitle</p>
+  <h2>Title</h2>
+  <p>Tagline or subtitle</p>
 </header>
 <p>Content</p>
 ```
@@ -185,9 +185,9 @@ Inline <q cite="http://example.com">quote with citation</q>.
 
 ```html
 <ol>
-<li>item</li>
-<li>item</li>
-<li>item</li>
+  <li>item</li>
+  <li>item</li>
+  <li>item</li>
 </ol>
 ```
 
@@ -195,9 +195,9 @@ Inline <q cite="http://example.com">quote with citation</q>.
 
 ```html
 <ul>
-<li>item</li>
-<li>item</li>
-<li>item</li>
+  <li>item</li>
+  <li>item</li>
+  <li>item</li>
 </ul>
 ```
 
@@ -230,9 +230,11 @@ Inline <q cite="http://example.com">quote with citation</q>.
 ```html
 <header>header</header>
 <nav>nav</nav>
-<section>section</section>
-<article>article</article>
-<aside>aside</aside>
+<main>
+  <section>section</section>
+  <article>article</article>
+  <aside>aside</aside>
+</main>
 <footer>footer</footer>
 ```
 
