@@ -4,6 +4,32 @@
 
 [TOC]
 
+# Idioms
+
+- [HTML5 Idioms](http://dsheiko.github.io/h5i/)
+  > **Idioms of semantic HTML**  
+  > Collection of templates and snippets of semantic HTML that can be used as boilerplate while working on markup
+
+[Article details](http://dsheiko.github.io/h5i/#article-details)  
+[Article list](http://dsheiko.github.io/h5i/#article-list)  
+[Bread crumb navigation](http://dsheiko.github.io/h5i/#bread-crumbs)  
+[Company info](http://dsheiko.github.io/h5i/#company-info)  
+[Conversations](http://dsheiko.github.io/h5i/#conversations)  
+[Download link](http://dsheiko.github.io/h5i/#download-link)  
+[Figure + WAI-ARIA](http://dsheiko.github.io/h5i/#figure)  
+[Footnotes: annotations](http://dsheiko.github.io/h5i/#footnotes-annotations)  
+[Footnotes: side notes](http://dsheiko.github.io/h5i/#footnotes-side-notes)  
+[Form](http://dsheiko.github.io/h5i/#form)  
+[Glossary of terms](http://dsheiko.github.io/h5i/#glossary)  
+[Holy Grail Layout](http://dsheiko.github.io/h5i/#holy-grail-layout)  
+[Metadata](http://dsheiko.github.io/h5i/#meta-data)  
+[Quotation](http://dsheiko.github.io/h5i/#quotation)  
+[Subheadings, subtitles, alternative titles and taglines](http://dsheiko.github.io/h5i/#subheadings)  
+[Tag clouds](http://dsheiko.github.io/h5i/#tag-cloud)  
+[Video](http://dsheiko.github.io/h5i/#video)  
+
+# Elements
+
 ## abbreviation
 
 ```html
