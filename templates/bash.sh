@@ -3,8 +3,8 @@
 # Licensed under the MIT License: https://opensource.org/licenses/MIT
 
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
-# -x    print each command before executing it [debug]
-set -u  # treat unset variables as errors
+set -euo pipefail
+# set -x    print each command before executing it [debug]
 
 readonly BASEDIR=$(cd "$(dirname "$0")" && pwd) # where the script is located
 readonly CALLDIR=$(pwd)                         # where it was called from
