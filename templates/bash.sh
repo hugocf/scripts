@@ -2,6 +2,13 @@
 # Created by Hugo Ferreira <hugo@ferreira.cc> on isoD
 # Licensed under the MIT License: https://opensource.org/licenses/MIT
 
+# When to use bash and when to avoid bash
+#
+# * does it need to glue userland utilities together? use bash.
+# * does it need to do complex tasks (e.g. database queries)? use something else.
+#
+# — [azet/community_bash_style_guide: Community Bash Style Guide](https://github.com/azet/community_bash_style_guide)
+
 # https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/
 set -euo pipefail
 # set -x    print each command before executing it [debug]
