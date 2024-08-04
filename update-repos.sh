@@ -9,7 +9,7 @@ readonly CALLDIR=$(pwd)                         # where it was called from
 readonly DEFAULT_EMAIL=$(git config --global user.email)
 
 # Script functions
-function usage () {
+usage() {
     echo "
 Fetches the latest changes from all the git repos in a folder and
 makes sure the correct email address is configured in each repo.
@@ -26,7 +26,7 @@ Example:
     exit ${1:-0}
 }
 
-function ask_if_empty () {
+ask_if_empty() {
     local value="$1"
     local default="$2"
     local message="$3"
@@ -38,7 +38,7 @@ function ask_if_empty () {
     echo "$value"
 }
 
-function update_repo {
+update_repo() {
     local repo="$1"
     local email="$2"
     local origin=$(pwd)
@@ -52,14 +52,14 @@ function update_repo {
     cd "$origin"
 }
 
-function show_header {
+show_header() {
     local repo="$1"
     echo
     echo $'\e[1;34m'"$repo"$'\e[0m' # color = blue
 }
 
 # Makes sure there is an email set for the repo. Prompts for it if needed.
-function set_repo_email {
+set_repo_email() {
     local email="$1"
     local existing="$(git config --local user.email)"
     local new_email=""
@@ -84,7 +84,7 @@ function set_repo_email {
     fi
 }
 
-function sync_with_remote {
+sync_with_remote() {
     # autostash is only available since git version 2.9
     # for earlier versions use: git config --global rebase.autoStash true
     local version=$(git --version | cut -d' ' -f3)

@@ -8,7 +8,7 @@ readonly CALLDIR=$(pwd)                         # where it was called from
 readonly STATUS_SUCCESS=0                       # exit status for commands
 
 # Script functions
-function usage () {
+usage() {
     echo "
 Usage: $(basename $0) [options] folder package archtype
 
@@ -25,7 +25,7 @@ Example:
     exit ${1:-0}
 }
 
-function ask_if_empty () {
+ask_if_empty() {
     local value="$1"
     local default="$2"
     local message="$3"

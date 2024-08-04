@@ -27,8 +27,7 @@ BACKGROUND_WHITE=`tput setab 7`
 RESET_FORMATTING=`tput sgr0`
 
 # Wrapper function for Maven's mvn command.
-mvn-color()
-{
+mvn-color() {
   # Filter mvn output using sed
   mvn $@ | sed -e "s/\(\[INFO\]\ \-.*\)/${BOLD}\1${RESET_FORMATTING}/g" \
                -e "s/\(\[INFO\]\ \[.*\)/${RESET_FORMATTING}${BOLD}\1${RESET_FORMATTING}/g" \

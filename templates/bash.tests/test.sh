@@ -8,15 +8,15 @@ readonly INVERT="\033[7m"
 readonly NORMAL="\033[0m"
 
 # Script functions
-test_case () {
+test_case() {
     echo "$BOLD$INVERT\n => $1: $NORMAL";
 }
 
-validation () {
+validation() {
     echo "\n${BOLD}Validation:$NORMAL";
 }
 
-highlight () {
+highlight() {
     awk -v good="$1" -v bad="$2" -v normal="$NORMAL" '{
         sub(good, "\033[1;34m" "&" normal)
         sub(bad,  "\033[1;31m" "&" normal)
@@ -24,7 +24,7 @@ highlight () {
     }'
 }
 
-highlight_diff () {
+highlight_diff() {
     highlight "identical" "differ"
 }
 

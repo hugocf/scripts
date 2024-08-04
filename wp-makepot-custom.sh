@@ -11,7 +11,7 @@ readonly STATUS_SUCCESS=0                       # exit status for commands
 readonly CMD_MAKE_POT="php ${HOME}/Work/Sandbox/wordpress/i18n-tools.svn/makepot.php"
 
 # Script functions
-function usage () {
+usage() {
     echo "
 Usage: $(basename $0) slug folder
 
@@ -26,7 +26,7 @@ Example:
     exit ${1:-0}
 }
 
-function ask_if_empty () {
+ask_if_empty() {
     local value="$1"
     local default="$2"
     local message="$3"
@@ -38,7 +38,7 @@ function ask_if_empty () {
     echo "$value"
 }
 
-function make_pot () {
+make_pot() {
     local kind="$1"
     local slug="$2"
     local folder="$3"
@@ -63,14 +63,14 @@ function make_pot () {
     $cleanup $slug $folder
 }
 
-function mu_plugin_setup () {
+mu_plugin_setup() {
     local slug="$1"
     local folder="$2"
     mkdir -p "$folder/wp-content/mu-plugins/$slug"
     ln -nfs "../$slug.php" "$folder/wp-content/mu-plugins/$slug/$slug.php"
 }
 
-function mu_plugin_cleanup () {
+mu_plugin_cleanup() {
     local slug="$1"
     local folder="$2"
     mv "$folder/wp-content/mu-plugins/$slug/$slug.pot" "$folder/wp-content/mu-plugins/"

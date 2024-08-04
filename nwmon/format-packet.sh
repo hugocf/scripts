@@ -22,7 +22,7 @@
 # Copyright (c) 2010 Hugo Ferreira. All Rights Reserved.
 # Licensed under the MIT License: https://opensource.org/licenses/MIT
 
-function format () {
+format() {
   line=$*
   port=`echo $line | sed -E 's/.*lan\.([0-9]+).*/\1/g'` # FIXME: the other comp can also be in .lan
   info=(`sudo lsof -Fpc -i:$port | cut -c2-`)   # returns: <pid> <app>

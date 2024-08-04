@@ -21,7 +21,7 @@ readonly SUCCESS=0                              # exit status of bash commands
 readonly CONSTANT="value"
 
 # Script functions
-usage () {
+usage() {
     echo "Description of the script.
 
 Usage:
@@ -37,7 +37,7 @@ Example:
     exit ${1:-0}
 }
 
-ask_if_empty () {
+ask_if_empty() {
     local value="$1"
     local default="$2"
     local message="$3"
@@ -48,7 +48,7 @@ ask_if_empty () {
     echo "${value:-$default}"
 }
 
-check_file_exists () {
+check_file_exists() {
     local what=${1:-}
     if [[ ! -f "$what" ]]; then
         >&2 echo "Error: Could not find '$what'"    # stderr
@@ -56,7 +56,7 @@ check_file_exists () {
      fi
 }
 
-check_tool_exists () {
+check_tool_exists() {
     local what=${1:-}
     local how=${2:-brew install $what}
     if ! command -v $what > /dev/null; then
@@ -66,7 +66,7 @@ check_tool_exists () {
     fi
 }
 
-check_var_exists () {
+check_var_exists() {
     local what=${1:-}
     local value=${2:-something}
     if [[ -z "${!what:-}" ]]; then
@@ -81,7 +81,7 @@ check_var_exists () {
 #   $ example_positional some "foo bar"
 #   1st=some 2nd=foo bar 3rd=
 #
-example_positional () {
+example_positional() {
     local -r readonly=$1
     local writable=$2
     local optional="${3:-}"
@@ -93,7 +93,7 @@ example_positional () {
 #   $ example_named name=some param="foo bar"
 #   1st=some 2nd=foo bar 3rd=default
 #
-example_named () {
+example_named() {
     local name param another
     local "$@"
     local another=${another:-default}

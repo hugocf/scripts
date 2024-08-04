@@ -2,7 +2,7 @@
 readonly STATUS_SUCCESS=0  # exit status for commands
 
 # Script functions
-function usage () {
+usage() {
     echo "
 Usage: $(basename $0) values_file target_file
 

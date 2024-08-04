@@ -7,7 +7,7 @@
 # Checks several reference settings on a new *nix system.
 #
 
-check () {
+check() {
   echo
   echo "> CHECKING: $*"
   $*

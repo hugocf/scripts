@@ -9,7 +9,7 @@
 # Replace whatever extension of script name with .cfg
 CONFIG="${0%.*}.cfg"
  
-function fetchall () {
+fetchall() {
     tgt=$1
     echo
     echo $tgt

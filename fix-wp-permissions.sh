@@ -1,5 +1,6 @@
 #!/bin/sh
-function usage () {
+
+usage() {
     echo "
 Usage: $(basename $0) dir
 

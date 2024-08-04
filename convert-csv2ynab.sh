@@ -31,7 +31,7 @@ readonly CGP_AWK_DELIM=','   # http://backreference.org/2010/04/17/csv-parsing-w
 readonly CGP_AWK_MAPPING='amount=$3; date=$1; payee=$2;'
 
 # Script functions
-function usage () {
+usage() {
     echo "
 Usage: $(basename $0) [options] source
 
@@ -50,7 +50,7 @@ Example:
     exit ${1:-0}
 }
 
-function ask_if_empty () {
+ask_if_empty() {
     local value="$1"
     local default="$2"
     local message="$3"
@@ -62,7 +62,7 @@ function ask_if_empty () {
     echo "$value"
 }
 
-function convert_dir () {
+convert_dir() {
     local dir="$1"
     if [[ -z "$(ls "$dir"/*.csv 2> /dev/null)" ]]; then
         echo "No files to process in directory."
@@ -73,7 +73,7 @@ function convert_dir () {
     fi
 }
 
-function convert_file () {
+convert_file() {
     local file="$1"
     
     if is_valid "$BCP_WATERMARK" "$file"; then
@@ -94,13 +94,13 @@ function convert_file () {
     fi
 }
 
-function is_valid () {
+is_valid() {
     local mark="$1"
     local file="$2"
     grep -q "$mark" "$file"     # found = valid; not found = invalid
 }
 
-function parse_file () {
+parse_file() {
     local file="$1"
     local sed_cmd="$2"
     local awk_delim="$3"
@@ -123,7 +123,7 @@ function parse_file () {
     echo File parsed into: "$targetfile"
 }
 
-function error_msg () {
+error_msg() {
     local message=$1
     [[ "$message" ]] && echo $message
     exit 1

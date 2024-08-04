@@ -17,7 +17,7 @@ readonly QRCODE_FILE="qrcode.png"
 readonly SOURCE_FILE="emails.txt"
 
 # Script functions
-function usage () {
+usage() {
     echo "
 Usage: `basename $0` [options] emailsfile
 
@@ -41,7 +41,7 @@ Example:
     exit ${1:-0}
 }
 
-function askifempty () {
+askifempty() {
     ask_val="$1"; ask_default="$2"; ask_msg="$3"; ask_options="$4"  # pass "-s" for passwords
     if [[ -z "$ask_val" ]]; then
         read $ask_options -p "$ask_msg [$ask_default] " ask_val
