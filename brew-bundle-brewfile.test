@@ -1,0 +1,11 @@
+tap "alexanderwillner/tap"
+
+brew "asdf"                                 # Example comment
+brew "autojump"
+
+cask "1password"                            # Example comment
+cask "disk-inventory-x"
+
+mas "Randomness", id: 673815312             # Example comment with numbers 1234
+mas "Sim Daltonism", id: 693112260
+mas "1Password for Safari", id: 1569813296  # Example comment with numbers 1234
