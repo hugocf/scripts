@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# See also https://github.com/yannbertrand/macos-defaults/blob/main/diff.sh
+
 main() {
     prefs_before=$(mktemp)
     prefs_after=$(mktemp)
@@ -20,14 +22,15 @@ main() {
 
 save_prefs() {
     check_defaults "$1"
-    check_1password "$1"
-    check_officetime "$1"
-    check_slack "$1"
-    check_things "$1"
+    # check_1password "$1"
+    # check_officetime "$1"
+    # check_slack "$1"
+    # check_things "$1"
 }
 
 check_defaults() {
     defaults read >> "$1"
+    defaults -currentHost read >> "$1"
 }
 
 check_1password() {
