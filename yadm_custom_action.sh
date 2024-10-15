@@ -20,7 +20,7 @@ pl2xml() {
 }
 
 restore_unstaged_plist() {
-    yadm status --porcelain | grep "^.[M?].*plist.*" | cut -c4- | xargs -I{} yadm restore {}
+    yadm status --porcelain | grep -E "^(M| M) .*\.plist(\.xml)?$" | cut -c4- | xargs -I{} yadm restore --staged --worktree {}
 }
 
 case ${1:-} in
